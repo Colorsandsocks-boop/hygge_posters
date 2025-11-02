@@ -1,0 +1,631 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Astrid Andersen - Hygge Posters</title>
+    <link href="https://fonts.googleapis.com/css2?family=Droid+Serif:wght@400;700&family=Droid+Sans:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Droid Sans', sans-serif;
+            color: #333;
+            line-height: 1.6;
+        }
+
+        /* Navigation */
+        .navbar {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: white;
+            padding: 20px 40px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+            z-index: 1000;
+        }
+
+        .nav-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo-container img {
+            height: 50px;
+            width: auto;
+        }
+
+        .nav-right {
+            display: flex;
+            align-items: center;
+            gap: 40px;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 30px;
+        }
+
+        .nav-link {
+            text-decoration: none;
+            color: #333;
+            font-size: 16px;
+            transition: color 0.3s;
+        }
+
+        .nav-link:hover {
+            color: #6B8E7A;
+        }
+
+        .nav-icons {
+            display: flex;
+            gap: 20px;
+            align-items: center;
+        }
+
+        .nav-icon {
+            width: 24px;
+            height: 24px;
+            cursor: pointer;
+            transition: transform 0.3s;
+        }
+
+        .nav-icon:hover {
+            transform: scale(1.1);
+        }
+
+        /* Hero Section */
+        .hero-section {
+            background: #6B8E7A;
+            margin-top: 70px;
+            min-height: 600px;
+            display: flex;
+            align-items: stretch;
+        }
+
+        .hero-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: flex;
+            align-items: stretch;
+            width: 100%;
+        }
+
+        .hero-text {
+            flex: 1;
+            color: white;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            padding: 80px 60px;
+        }
+
+        .hero-text h1 {
+            font-family: 'Droid Serif', serif;
+            font-size: 52px;
+            font-weight: 700;
+            margin-bottom: 24px;
+            line-height: 1.2;
+        }
+
+        .hero-text p {
+            font-size: 18px;
+            line-height: 1.7;
+            opacity: 0.95;
+        }
+
+        .hero-image {
+            flex: 1;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+
+        /* Product Grid Section */
+        .product-section {
+            padding: 80px 40px;
+            background: white;
+        }
+
+        .product-container {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .product-grid {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            gap: 24px;
+        }
+
+        .product-card {
+            background: white;
+            border-radius: 4px;
+            overflow: hidden;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .product-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.12);
+        }
+
+        .product-image {
+            width: 100%;
+            background: #F5F1E8;
+            padding: 30px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .product-image img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        .product-info {
+            padding: 20px;
+            text-align: left;
+            background: white;
+        }
+
+        .product-info h3 {
+            font-family: 'Droid Serif', serif;
+            font-size: 18px;
+            margin-bottom: 6px;
+            font-weight: 700;
+            color: #000;
+        }
+
+        .product-info .price {
+            font-size: 16px;
+            margin-bottom: 16px;
+            color: #666;
+        }
+
+        .product-info button {
+            background: white;
+            border: 1px solid #000;
+            padding: 10px 24px;
+            cursor: pointer;
+            font-size: 14px;
+            transition: all 0.3s;
+            font-family: 'Droid Sans', sans-serif;
+            width: 100%;
+            font-weight: 500;
+        }
+
+        .product-info button:hover {
+            background: #000;
+            color: white;
+        }
+
+        /* Banner Section */
+        .banner-section {
+            background: #6B8E7A;
+            padding: 60px 40px;
+            text-align: center;
+        }
+
+        .banner-section h2 {
+            font-family: 'Droid Serif', serif;
+            font-size: 36px;
+            color: white;
+            max-width: 800px;
+            margin: 0 auto;
+            line-height: 1.4;
+            font-weight: 400;
+        }
+
+        /* Second Hero - Florale Collection */
+        .hero-florale {
+            background: white;
+            min-height: 600px;
+            display: flex;
+            align-items: stretch;
+        }
+
+        .hero-florale .hero-container {
+            flex-direction: row-reverse;
+        }
+
+        .hero-florale .hero-text {
+            color: #333;
+        }
+
+        .hero-florale .hero-text h2 {
+            font-family: 'Droid Serif', serif;
+            font-size: 48px;
+            font-weight: 700;
+            margin-bottom: 24px;
+            line-height: 1.2;
+        }
+
+        .hero-florale .hero-text p {
+            font-size: 18px;
+            line-height: 1.7;
+            opacity: 0.9;
+        }
+
+        /* About Artist Section */
+        .about-section {
+            background: #6B8E7A;
+            padding: 80px 40px;
+        }
+
+        .about-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            gap: 80px;
+        }
+
+        .about-text {
+            flex: 1;
+            color: white;
+        }
+
+        .about-text h2 {
+            font-family: 'Droid Serif', serif;
+            font-size: 42px;
+            font-weight: 700;
+            margin-bottom: 24px;
+            line-height: 1.2;
+        }
+
+        .about-text p {
+            font-size: 18px;
+            line-height: 1.7;
+            opacity: 0.95;
+        }
+
+        .about-image {
+            flex: 1;
+        }
+
+        .about-image img {
+            width: 100%;
+            height: auto;
+            border-radius: 4px;
+        }
+
+        /* Footer */
+        .footer {
+            background: white;
+            padding: 60px 40px 40px;
+            border-top: 1px solid #e0e0e0;
+        }
+
+        .footer-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+        }
+
+        .footer-logo img {
+            height: 50px;
+            width: auto;
+        }
+
+        .footer-links {
+            display: flex;
+            gap: 40px;
+        }
+
+        .footer-links a {
+            text-decoration: none;
+            color: #333;
+            font-size: 16px;
+            transition: color 0.3s;
+        }
+
+        .footer-links a:hover {
+            color: #6B8E7A;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 1200px) {
+            .product-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+
+        @media (max-width: 991px) {
+            .hero-container,
+            .about-container {
+                flex-direction: column;
+            }
+
+            .hero-section,
+            .hero-florale {
+                min-height: auto;
+            }
+
+            .hero-image {
+                min-height: 400px;
+            }
+
+            .hero-florale .hero-container {
+                flex-direction: column;
+            }
+
+            .hero-text,
+            .about-text {
+                padding: 60px 40px;
+            }
+
+            .hero-text h1 {
+                font-size: 42px;
+            }
+
+            .product-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .nav-links {
+                display: none;
+            }
+        }
+
+        @media (max-width: 767px) {
+            .navbar {
+                padding: 15px 20px;
+            }
+
+            .hero-section,
+            .product-section,
+            .hero-florale,
+            .about-section {
+                padding: 60px 20px;
+            }
+
+            .hero-text h1,
+            .hero-florale .hero-text h2,
+            .about-text h2 {
+                font-size: 36px;
+            }
+
+            .banner-section h2 {
+                font-size: 28px;
+            }
+
+            .product-grid {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+
+            .footer-container {
+                flex-direction: column;
+                gap: 30px;
+            }
+        }
+
+        @media (max-width: 479px) {
+            .hero-text h1,
+            .hero-florale .hero-text h2,
+            .about-text h2 {
+                font-size: 32px;
+            }
+
+            .banner-section h2 {
+                font-size: 24px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="logo-container">
+                <img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iODAwIiBoZWlnaHQ9IjI1MCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KICA8cmVjdCB3aWR0aD0iODAwIiBoZWlnaHQ9IjI1MCIgZmlsbD0id2hpdGUiLz4KICA8dGV4dCB4PSI0MDAiIHk9IjgwIiBmb250LWZhbWlseT0iQXJpYWwsIHNhbnMtc2VyaWYiIGZvbnQtc2l6ZT0iNjAiIGZvbnQtd2VpZ2h0PSIzMDAiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGZpbGw9ImJsYWNrIj5Bc3RyaWQgQW5kZXJzZW48L3RleHQ+CiAgPHRleHQgeD0iNDAwIiB5PSIxODAiIGZvbnQtZmFtaWx5PSJBcmlhbCwgc2Fucy1zZXJpZiIgZm9udC1zaXplPSIxMDAiIGZvbnQtd2VpZ2h0PSI0MDAiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGZpbGw9ImJsYWNrIj5IeWdnZSBQb3N0ZXJzPC90ZXh0Pgo8L3N2Zz4=" alt="Hygge Posters Logo">
+            </div>
+
+            <div class="nav-right">
+                <div class="nav-links">
+                    <a href="#winter" class="nav-link">Winter Poster</a>
+                    <a href="#florale" class="nav-link">Florale Poster</a>
+                </div>
+
+                <div class="nav-icons">
+                    <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path>
+                    </svg>
+                    <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <circle cx="9" cy="21" r="1"></circle>
+                        <circle cx="20" cy="21" r="1"></circle>
+                        <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path>
+                    </svg>
+                </div>
+            </div>
+        </div>
+    </nav>
+    <section class="hero-section" id="winter">
+        <div class="hero-container">
+            <div class="hero-text">
+                <h1>Entdecke unser Winter Poster Set</h1>
+                <p>Jedes unserer Poster ist mehr als ein Bild - es ist ein Statement für Ruhe, Stil und Persönlichkeit. Wenn du dich täglich daran erfreust, hast du nicht nur eine Wanddekoration gekauft, sondern ein Stück Lebensqualität.</p>
+            </div>
+            <div class="hero-image">
+                <img src="https://cdn.prod.website-files.com/68cd49f43ec6b9ef0632f29e/69076513585cf523a36fa696_Gemini_Generated_Image_wkb98wwkb98wwkb9.png" alt="Winter Poster Kollektion an der Wand">
+            </div>
+        </div>
+    </section>
+    <section class="product-section">
+        <div class="product-container">
+            <div class="product-grid">
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="https://cdn.prod.website-files.com/68cd49f43ec6b9ef0632f29e/69077d22e1d9f987420cba73_snowflake.png" alt="Snowflake Poster">
+                    </div>
+                    <div class="product-info">
+                        <h3>Snowflake</h3>
+                        <p class="price">6,67€</p>
+                        <button>In den Warenkorb</button>
+                    </div>
+                </div>
+
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="https://cdn.prod.website-files.com/68cd49f43ec6b9ef0632f29e/69077ccca57558ad336b2401_winterwald.png" alt="Winter Wald Poster">
+                    </div>
+                    <div class="product-info">
+                        <h3>Winter Wald</h3>
+                        <p class="price">6,67€</p>
+                        <button>In den Warenkorb</button>
+                    </div>
+                </div>
+
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="https://cdn.prod.website-files.com/68cd49f43ec6b9ef0632f29e/69077d63a17bafd64bf51564_cozy_h%C3%A4user.png" alt="Cozy Häuser Poster">
+                    </div>
+                    <div class="product-info">
+                        <h3>Cozy Häuser</h3>
+                        <p class="price">6,67€</p>
+                        <button>In den Warenkorb</button>
+                    </div>
+                </div>
+
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="https://cdn.prod.website-files.com/68cd49f43ec6b9ef0632f29e/69077bfc7af118e819092e6c_reindeer.png" alt="Reindeer Poster">
+                    </div>
+                    <div class="product-info">
+                        <h3>Reindeer</h3>
+                        <p class="price">6,67€</p>
+                        <button>In den Warenkorb</button>
+                    </div>
+                </div>
+
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="https://cdn.prod.website-files.com/68cd49f43ec6b9ef0632f29e/69077da696b2ea520c7a2758_cozy_sessel.png" alt="Cozy Sessel Poster">
+                    </div>
+                    <div class="product-info">
+                        <h3>Cozy Sessel</h3>
+                        <p class="price">6,67€</p>
+                        <button>In den Warenkorb</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="banner-section">
+        <h2>Hygge Prints hat die schönsten Skandinavischen drucke für dein Zuhause.</h2>
+    </section>
+    <section class="hero-florale" id="florale">
+        <div class="hero-container">
+            <div class="hero-text">
+                <h2>Entdecke die neue Collection mit Floralen Designs</h2>
+                <p>Unsere neu Florale Kollektion kombiniert sanfte Rose töne mit traditionellen dänischen Malereien. Hol dir diese geometrischen Prints in dein Zuhause!</p>
+            </div>
+            <div class="hero-image">
+                <img src="https://images.unsplash.com/photo-1618220179428-22790b461013?w=800&h=600&fit=crop" alt="Florale Poster Kollektion">
+            </div>
+        </div>
+    </section>
+    <section class="product-section">
+        <div class="product-container">
+            <div class="product-grid">
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="https://cdn.prod.website-files.com/68cd49f43ec6b9ef0632f29e/69077ffda48bb56f37a80e3f_Gemini_Generated_Image_22rulw22rulw22ru.png" alt="Calm Poster">
+                    </div>
+                    <div class="product-info">
+                        <h3>Calm</h3>
+                        <p class="price">8,20€</p>
+                        <button>In den Warenkorb</button>
+                    </div>
+                </div>
+
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="https://cdn.prod.website-files.com/68cd49f43ec6b9ef0632f29e/69078101a6134b9d94de6a6a_Gemini_Generated_Image_bkvbnobkvbnobkvb.png" alt="Bliss Poster">
+                    </div>
+                    <div class="product-info">
+                        <h3>Bliss</h3>
+                        <p class="price">8,20€</p>
+                        <button>In den Warenkorb</button>
+                    </div>
+                </div>
+
+<div class="product-card">
+    <div class="product-image">
+        <img src="https://cdn.prod.website-files.com/68cd49f43ec6b9ef0632f29e/69078091b82ece2f5b720c30_Gemini_Generated_Image_teafyyteafyyteaf.png" alt="Harmony Poster">
+    </div>
+    <div class="product-info"> <h3>Harmony</h3>
+        <p class="price">8,20€</p>
+        <button>In den Warenkorb</button>
+    </div>
+</div>
+
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="https://cdn.prod.website-files.com/68cd49f43ec6b9ef0632f29e/690780bf5b93950f76890079_Gemini_Generated_Image_fd6filfd6filfd6f.png" alt="Strength Poster">
+                    </div>
+                    <div class="product-info">
+                        <h3>Strength</h3>
+                        <p class="price">8,20€</p>
+                        <button>In den Warenkorb</button>
+                    </div>
+                </div>
+
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="https://cdn.prod.website-files.com/68cd49f43ec6b9ef0632f29e/690780e128078c3f690dda59_Gemini_Generated_Image_addhj3addhj3addh.png" alt="Presence Poster">
+                    </div>
+                    <div class="product-info">
+                        <h3>Presence</h3>
+                        <p class="price">8,20€</p>
+                        <button>In den Warenkorb</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="about-section">
+        <div class="about-container">
+            <div class="about-text">
+                <h2>Über die Künstlerin:</h2>
+                <p>Diese Website bietet Ki generierte Poster einer Fiktiven Designerin namens Astrid Andersen. In kleinen limitierten Collectionen.</p>
+            </div>
+            <div class="about-image">
+                <img src="https://cdn.prod.website-files.com/68cd49f43ec6b9ef0632f29e/690781ff750fdefaeac1a68c_Gemini_Generated_Image_93ev4493ev4493ev.png" alt="Astrid Andersen beim Arbeiten">
+            </div>
+        </div>
+    </section>
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-logo">
+                <img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iODAwIiBoZWlnaHQ9IjI1MCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KICA8cmVjdCB3aWR0aD0iODAwIiBoZWlnaHQ9IjI1MCIgZmlsbD0id2hpdGUiLz4KICA8dGV4dCB4PSI0MDAiIHk9IjgwIiBmb250LWZhbWlseT0iQXJpYWwsIHNhbnMtc2VyaWYiIGZvbnQtc2l6ZT0iNjAiIGZvbnQtd2VpZ2h0PSIzMDAiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGZpbGw9ImJsYWNrIj5Bc3RyaWQgQW5kZXJzZW48L3RleHQ+CiAgPHRleHQgeD0iNDAwIiB5PSIxODAiIGZvbnQtZmFtaWx5PSJBcmlhbCwgc2Fucy1zZXJpZiIgZm9udC1zaXplPSIxMDAiIGZvbnQtd2VpZ2h0PSI0MDAiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGZpbGw9ImJsYWNrIj5IeWdnZSBQb3N0ZXJzPC90ZXh0Pgo8L3N2Zz4=" alt="Hygge Posters Logo">
+            </div>
+
+            <div class="footer-links">
+                <a href="#cookie">Cookie Richtlinie</a>
+                <a href="#kontakt">Kontakt</a>
+                <a href="#impressum">Impressum</a>
+                <a href="#datenschutz">Datenschutz</a>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
