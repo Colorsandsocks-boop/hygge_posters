@@ -8,7 +8,7 @@ Assets entstanden in Gemini Imagen: [Link zum Chat](https://gemini.google.com/sh
 
 ## Hosting
 Die Webseite ist als statische Page auf netlify.com gehostet. Dieses Repo ist mit netlify.com verbunden. Damit wird sicher gestellt
-dass bei Änderungen an dem Projekt direkt auf der Live Seite reflektiert werden. 
+dass Änderungen an dem Projekt direkt auf der Live Seite reflektiert werden. 
 
 Als Bonus bietet das Speichern der Website in einem Github Repo ein stabiles Versionierungsmanagement und die Möglichkeit, dass
 andere Designer zum Code der Website beitragen können.
